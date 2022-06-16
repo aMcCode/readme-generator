@@ -1,9 +1,9 @@
-const questions = [
+const initial_questions = [
   {
     type: "input",
     name: "projectInput",
     message: "What is the name of your project? (Required)",
-    validate: projectInput => {
+    validate: (projectInput) => {
       if (projectInput) {
         return true;
       } else {
@@ -57,48 +57,6 @@ const questions = [
     ],
   },
   {
-    type: "confirm",
-    name: "confirmTests",
-    message: "Are there any tests created for this project?",
-    default: false,
-  },
-  {
-    type: "number",
-    name: "testCount",
-    message: "How many tests do you need to list?",
-    when: ({ confirmTests }) => confirmTests,
-  },
-  {
-    type: "number",
-    name: "installStepCount",
-    message:
-      "How many steps would you like to provide for installation? (Required)",
-    validate: (installStepCount) => {
-      if (
-        installStepCount 
-      ) {
-        return true;
-      } else {
-        console.log(
-          "Please enter a valid whole number. How many steps would you like to provide for installation?"
-        );
-        return false;
-      }
-    },
-  },
-  {
-    type: "confirm",
-    name: "confirmContributions",
-    message: "Are you accepting contributions to this project?",
-    default: false,
-  },
-  {
-    type: "number",
-    name: "contributionCount",
-    message: "How many ways are there to contribute to the project?",
-    when: ({ confirmContributions }) => confirmContributions,
-  },
-  {
     type: "input",
     name: "github",
     message: "Enter your GitHub Username (Required)",
@@ -116,14 +74,66 @@ const questions = [
     name: "email",
     message: "Please enter your email address. (Required)",
     validate: (email) => {
-      if (email && /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+      if (
+        email &&
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+      ) {
         return true;
       } else {
         console.log("Please enter a valid email address.");
         return false;
       }
     },
+  },
+];
+
+const contribution_questions = [
+  {
+    type: "input",
+    name: "contribution",
+    message: "Enter contribution method. Type 'none' if none.",
+  },
+  {
+    type: "confirm",
+    name: "moreContributions",
+    message: "Would you like to enter more contributions?",
+    default: false,
+  },
+];
+
+const tests_questions = [
+  {
+    type: "input",
+    name: "test",
+    message:
+      "Enter the name of a test used for this project. Type 'none' if none.",
+  },
+  {
+    type: "confirm",
+    name: "moreTests",
+    message: "Would you like to enter more tsts?",
+    default: false,
+  },
+];
+
+const mock_data = [
+  {
+    projectInput: "Test Project",
+    projectDescription: "This is a test project.",
+    usageInput: "This is how you use the app",
+    license: "MIT",
+    github: "amccode",
+    email: "mcneila1997@gmail.com",
+    confirmContributions: "y",
+    contributionCount: 3,
+    confirmTests: "y",
+    testCount: 2
   }
 ];
 
-module.exports = { questions };
+module.exports = {
+  initial_questions,
+  contribution_questions,
+  tests_questions,
+  mock_data,
+};
