@@ -1,8 +1,9 @@
-// TODO: Include packages needed for this application
 const inquirer = require("inquirer");
-// const generateMarkdown = require("./utils/generateMarkdown");
+const generateMarkdown = require("./Develop/utils/generateMarkdown");
 // const { writeFile, copyFile } = require("./utils/manage_files");
 const { initial_questions, contribution_questions, tests_questions, mock_data} = require("./Develop/utils/questions.js");
+
+const DEBUG = false;
 
 const promptInitQuestions = () => {
   return inquirer.prompt(initial_questions);
@@ -46,8 +47,14 @@ function init() {
     .then(promptContributions)
     .then(promptTests)
     .then (readme_data => {
-      console.log(readme_data);
+        const readme_file = generateMarkdown(readme_data);
+        console.log(readme_file);
     });
 }
 
-init();
+if(!DEBUG)
+  init();
+else {
+  const readme_file = generateMarkdown(mock_data);
+  console.log(readme_file);
+};

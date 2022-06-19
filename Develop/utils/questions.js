@@ -98,7 +98,7 @@ const contribution_questions = [
     name: "moreContributions",
     message: "Would you like to enter more contributions?",
     default: false,
-  },
+  }
 ];
 
 const tests_questions = [
@@ -119,15 +119,15 @@ const tests_questions = [
 const mock_data = [
   {
     projectInput: "Test Project",
-    projectDescription: "This is a test project.",
-    usageInput: "This is how you use the app",
+    projectDescription:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    usageInput:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     license: "MIT",
     github: "amccode",
     email: "mcneila1997@gmail.com",
-    confirmContributions: "y",
-    contributionCount: 3,
-    confirmTests: "y",
-    testCount: 2
+    contributions: [ "contribution 1", "contribution 2", "contribution 3" ],
+    tests: [ "none" ]
   }
 ];
 
