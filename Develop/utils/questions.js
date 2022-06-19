@@ -44,6 +44,7 @@ const initial_questions = [
     message: "Which license did you use for this project?",
     choices: [
       "Apache",
+      "Apache 2.0",
       "GNU GPLv2",
       "GNU GPLv3",
       "GNU AGPLv3",
@@ -51,9 +52,8 @@ const initial_questions = [
       "MIT",
       "ISC",
       "Moxilla Public 2.0",
-      "Apache 2.0",
       "Boost Software 1.0",
-      "Unilicense",
+      "Unilicense"
     ],
   },
   {
@@ -116,8 +116,7 @@ const tests_questions = [
   },
 ];
 
-const mock_data = [
-  {
+const mock_data =  {
     projectInput: "Test Project",
     projectDescription:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -128,8 +127,7 @@ const mock_data = [
     email: "mcneila1997@gmail.com",
     contributions: [ "contribution 1", "contribution 2", "contribution 3" ],
     tests: [ "none" ]
-  }
-];
+  };
 
 module.exports = {
   initial_questions,

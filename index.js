@@ -1,9 +1,9 @@
 const inquirer = require("inquirer");
 const generateMarkdown = require("./Develop/utils/generateMarkdown");
-// const { writeFile, copyFile } = require("./utils/manage_files");
+const { writeFile, copyFile } = require("./Develop/utils/manage_files");
 const { initial_questions, contribution_questions, tests_questions, mock_data} = require("./Develop/utils/questions.js");
 
-const DEBUG = false;
+const DEBUG = true;
 
 const promptInitQuestions = () => {
   return inquirer.prompt(initial_questions);
@@ -38,23 +38,27 @@ const promptTests = readme_data => {
   });
 };
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
 // Function call to initialize app
 function init() {
   promptInitQuestions()
     .then(promptContributions)
     .then(promptTests)
-    .then (readme_data => {
-        const readme_file = generateMarkdown(readme_data);
-        console.log(readme_file);
+    .then(readme_data => { return generateMarkdown(readme_data); })
+    .then(mockupTxt => { return writeFile(mockupTxt); })
+    .then(copyFile)
+    .catch(err => {
+      console.log(err);
     });
 }
 
+// TEST Function call to initialize app
+async function testInit() {
+  const mockTxt = generateMarkdown(mock_data)
+  await writeFile(mockTxt);
+  copyFile();
+};
+
 if(!DEBUG)
   init();
-else {
-  const readme_file = generateMarkdown(mock_data);
-  console.log(readme_file);
-};
+else
+  testInit();
