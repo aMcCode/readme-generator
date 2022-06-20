@@ -1,18 +1,20 @@
+const openURL = "https://opensource.org/licenses/";
+const gnuURL = "https://www.gnu.org/licenses/";
+
+/* source for license details = https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba */
 const licenseDict = {
-  "Apache": ["", "", "", "", ""],
-  "Apache 2.0": ["", "", "", "", ""],
-  "GNU GPLv2": ["", "", "", "", ""],
-  "GNU GPLv3": ["", "", "", "", ""],
-  "GNU AGPLv3": ["", "", "", "", ""],
-  "GNU LGPLv3": ["", "", "", "", "", ""],
-  "MIT": ["MIT", "MIT", "https://opensource.org/licenses/", "MIT", "yellow"],
-  "ISC": ["", "", "", "", ""],
-  "Moxilla Public 2.0": ["", "", "", "", ""],
-  "Boost Software 1.0": ["", "", "", "", ""],
-  "Unilicense": ["", "", "", "", ""]
+  "Apache 2.0": ["", "Apache_2.0", openURL, "Apache-2.0", "blue"],
+  "GNU GPLv2": ["GPL v2", "GPL_v2", gnuURL + "old-licenses/", "gpl-2.0.en.html", "blue"],
+  "GNU GPLv3": ["GPL v3", "GPLv3", gnuURL, "gpl-3.0", "blue"],
+  "GNU AGPLv3": ["AGPL v3", "AGPL_v3", gnuURL, "agpl-3.0", "blue"],
+  "GNU LGPLv3": ["LGPL v3", "LGPL_v3", gnuURL, "lgpl-3.0", "blue"],
+  "MIT": ["MIT", "MIT", openURL, "MIT", "yellow"],
+  "ISC": ["ISC", "ISC", openURL, "ISC", "blue"],
+  "Mozilla Public 2.0": ["MPL 2.0", "MPL_2.0", openURL, "MPL-2.0", "brightgreen"],
+  "Boost Software 1.0": ["", "Boost_1.0", "https://www.boost.org/", "LICENSE_1_0.txt", "lightblue"],
+  "Unlicense": ["Unlicense", "Unlicense", "http://unlicense.org/", "", "blue"]
 };
 
-// TODO: Create a function that returns a license badge based on which license is passed in
 function renderLicenseBadge(license) {
   if (license in licenseDict && licenseDict[license]) {
     const licList = licenseDict[license];
@@ -22,18 +24,92 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license in licenseDict && licenseDict[license]) {
+    const licList = licenseDict[license];
+    return `${licList[2]}${licenseDict[license][3]}`;
+  } else {
+    return "";
+  }
+}
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if(license) {
+  return `
+  ${renderLicenseBadge(license)}
 
-// TODO: Create a function to generate markdown for README
+  ${renderLicenseLink(license)}`;
+  } else {
+    return "";
+  }
+}
+
+function renderListItems(list, isUL) {
+  if(list[0].toLowerCase() === 'none' || !list[0])
+    return "none"
+
+  let textOut = `\n`;
+  counter = 1;
+  list.forEach(itm => {
+    if(isUL) 
+      textOut += `* ${itm}\n`;
+    else
+      textOut += `${counter}. ${itm}\n`;
+    counter++;
+  });
+  return textOut;
+}
+
 function generateMarkdown(data) {
-  const badge = renderLicenseBadge(data.license);
-  return badge;
+  const { projectInput, projectDescription, usageInput, license, github, email, install_steps, contributions, tests } = data;
+return `
+# ${projectInput}
+
+[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
+
+This command-line application uses the [Inquirer](https://www.npmjs.com/package/inquirer) NPM package to dynamically generate readme files.
+
+## Table of Contents
+* [Description](#Description)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+* [Questions](#Questions)
+***
+
+## Description
+${projectDescription}
+***
+
+## Installation
+The installation steps are as follows:
+${renderListItems(install_steps, false)}
+***
+
+## Usage
+${usageInput}
+***
+
+## License
+${renderLicenseSection(license)}
+***
+
+## Contributing
+${renderListItems(contributions, false) === "none" ? "" : "You may contribute to this project in the following ways: " + renderListItems(contributions, true)}
+***
+
+## Tests
+${renderListItems(tests, true) === "none" ? "No test have been created." : "The following tests were implemented:" + renderListItems(tests, false)}
+***
+
+## Questions/Contact
+
+Follow me on github at : ${github}<br>
+Email me at: ${email}
+
+`;
 }
 
 module.exports = generateMarkdown;

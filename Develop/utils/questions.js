@@ -51,9 +51,9 @@ const initial_questions = [
       "GNU LGPLv3",
       "MIT",
       "ISC",
-      "Moxilla Public 2.0",
+      "Mozilla Public 2.0",
       "Boost Software 1.0",
-      "Unilicense"
+      "Unlicense"
     ],
   },
   {
@@ -87,6 +87,28 @@ const initial_questions = [
   },
 ];
 
+const installation_questions = [
+  {
+    type: "input",
+    name: "installation_method",
+    message: "Provide an installation step.",
+    validate: (installation_method) => {
+      if (installation_method) {
+        return true;
+      } else {
+        console.log("Provide at least one installation step.!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "moreInstallSteps",
+    message: "Would you like to provide more installation steps?",
+    default: false,
+  }
+];
+
 const contribution_questions = [
   {
     type: "input",
@@ -117,21 +139,23 @@ const tests_questions = [
 ];
 
 const mock_data =  {
-    projectInput: "Test Project",
+    projectInput: "README Generator",
     projectDescription:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      `README files are an essential component of any technical deployment. A good README file can help users understand how to implement and use a given tool. Moreover, a README can be the primary selling point for an application as it can help distinguish a tool from similar ones.\n\nAs useful as they are, it can be time consuming to create a high-quality README. That's why this README generator was created! Using the Inquirer NPM package, README Generator prompts users to provide the essential details required for any readme and seemlessly produces a README that can be easily copied to any repository. `,
     usageInput:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    license: "MIT",
+    license: "Apache 2.0",
     github: "amccode",
     email: "mcneila1997@gmail.com",
+    install_steps: [ "step 1", "step 2", "step 3" ],
     contributions: [ "contribution 1", "contribution 2", "contribution 3" ],
-    tests: [ "none" ]
-  };
+    tests: [ "Test 1", "Test 2" ]
+};
 
 module.exports = {
-  initial_questions,
-  contribution_questions,
-  tests_questions,
-  mock_data,
+    initial_questions,
+    installation_questions,
+    contribution_questions,
+    tests_questions,
+    mock_data,
 };
