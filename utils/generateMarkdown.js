@@ -35,10 +35,8 @@ function renderLicenseLink(license) {
 
 function renderLicenseSection(license) {
   if(license) {
-  return `
-  ${renderLicenseBadge(license)}
-
-  ${renderLicenseLink(license)}`;
+  return `This application is covered under the ${license} license. For more information, visit:
+  ${renderLicenseLink(license)}.`;
   } else {
     return "";
   }
@@ -65,7 +63,7 @@ function generateMarkdown(data) {
 return `
 # ${projectInput}
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
+${license ? renderLicenseBadge(license) + " " + "[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()" : "[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()"}
 
 This command-line application uses the [Inquirer](https://www.npmjs.com/package/inquirer) NPM package to dynamically generate readme files.
 
@@ -106,8 +104,8 @@ ${renderListItems(tests, true) === "none" ? "No test have been created." : "The 
 
 ## Questions/Contact
 
-Follow me on github at : ${github}<br>
-Email me at: ${email}
+Follow me, ${github} on github at https://github.com/${github}.<br>
+If you have questions, feel free to email me at: ${email}.
 
 `;
 }

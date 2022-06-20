@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
-const generateMarkdown = require("./Develop/utils/generateMarkdown");
-const { writeFile, copyFile } = require("./Develop/utils/manage_files");
-const { initial_questions, installation_questions, contribution_questions, tests_questions, mock_data} = require("./Develop/utils/questions.js");
+const generateMarkdown = require("./utils/generateMarkdown");
+const { writeFile, copyFile } = require("./utils/manage_files");
+const { initial_questions, installation_questions, contribution_questions, tests_questions, mock_data} = require("./utils/questions.js");
 
 const DEBUG = true;
 

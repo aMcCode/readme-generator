@@ -1,7 +1,7 @@
 
 # README Generator
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
+[![License: ](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
 
 This command-line application uses the [Inquirer](https://www.npmjs.com/package/inquirer) NPM package to dynamically generate readme files.
 
@@ -35,10 +35,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 ***
 
 ## License
-
-  [![License: ](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
-  https://opensource.org/licenses/Apache-2.0
+This application is covered under the Apache 2.0 license. For more information, visit:
+  https://opensource.org/licenses/Apache-2.0.
 ***
 
 ## Contributing
@@ -58,6 +56,6 @@ The following tests were implemented:
 
 ## Questions/Contact
 
-Follow me on github at : amccode<br>
-Email me at: mcneila1997@gmail.com
+Follow me, amccode on github at https://github.com/amccode.<br>
+If you have questions, feel free to email me at: mcneila1997@gmail.com.
 
