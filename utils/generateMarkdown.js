@@ -43,7 +43,8 @@ function renderLicenseSection(license) {
 }
 
 function renderListItems(list, isUL) {
-  if(list[0].toLowerCase() === 'none' || !list[0])
+  console.log(list);
+  if(!list || !list[0] || list[0].toLowerCase() === 'none')
     return "none"
 
   let textOut = `\n`;
@@ -59,7 +60,7 @@ function renderListItems(list, isUL) {
 }
 
 function generateMarkdown(data) {
-  const { projectInput, projectDescription, usageInput, license, github, email, install_steps, contributions, tests } = data;
+  const { projectInput, projectDescription, usageInput, license, github, email, installSteps, contributions, tests } = data;
 return `
 # ${projectInput}
 
@@ -83,7 +84,7 @@ ${projectDescription}
 
 ## Installation
 The installation steps are as follows:
-${renderListItems(install_steps, false)}
+${renderListItems(installSteps, false)}
 ***
 
 ## Usage
@@ -95,16 +96,16 @@ ${renderLicenseSection(license)}
 ***
 
 ## Contributing
-${renderListItems(contributions, false) === "none" ? "" : "You may contribute to this project in the following ways: " + renderListItems(contributions, true)}
+${renderListItems(contributions, false) === "none" ? "Not accepting contributions at this time." : "You may contribute to this project in the following ways: " + renderListItems(contributions, true)}
 ***
 
 ## Tests
-${renderListItems(tests, true) === "none" ? "No test have been created." : "The following tests were implemented:" + renderListItems(tests, false)}
+${renderListItems(tests, true) === "none" ? "No tests have been created." : "The following tests were implemented:" + renderListItems(tests, false)}
 ***
 
 ## Questions/Contact
 
-Follow me, ${github} on github at https://github.com/${github}.<br>
+Follow me, ${github}, on github at https://github.com/${github}.<br>
 If you have questions, feel free to email me at: ${email}.
 
 `;

@@ -133,7 +133,7 @@ const tests_questions = [
   {
     type: "confirm",
     name: "moreTests",
-    message: "Would you like to enter more tsts?",
+    message: "Would you like to enter more tests?",
     default: false,
   },
 ];
@@ -143,13 +143,13 @@ const mock_data =  {
     projectDescription:
       `README files are an essential component of any technical deployment. A good README file can help users understand how to implement and use a given tool. Moreover, a README can be the primary selling point for an application as it can help distinguish a tool from similar ones.\n\nAs useful as they are, it can be time consuming to create a high-quality README. That's why this README generator was created! Using the Inquirer NPM package, README Generator prompts users to provide the essential details required for any readme and seemlessly produces a README that can be easily copied to any repository. `,
     usageInput:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    license: "Apache 2.0",
-    github: "amccode",
+      "When you run the program from the root directory using the command 'node index', the application will walk you through a few questions. Once you've answered the final question, the app will generate a README file with a formatted rendering of your responses. Note: The README file will be saved in the 'dist' folder.",
+    license: "ISC",
+    github: "aMcCode",
     email: "mcneila1997@gmail.com",
-    install_steps: [ "step 1", "step 2", "step 3" ],
-    contributions: [ "contribution 1", "contribution 2", "contribution 3" ],
-    tests: [ "Test 1", "Test 2" ]
+    install_steps: [ "Clone the repo." ],
+    contributions: [ "none" ],
+    tests: [ "none" ]
 };
 
 module.exports = {
