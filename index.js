@@ -1,12 +1,27 @@
 const inquirer = require("inquirer");
 const generateMarkdown = require("./Develop/utils/generateMarkdown");
 const { writeFile, copyFile } = require("./Develop/utils/manage_files");
-const { initial_questions, contribution_questions, tests_questions, mock_data} = require("./Develop/utils/questions.js");
+const { initial_questions, installation_questions, contribution_questions, tests_questions, mock_data} = require("./Develop/utils/questions.js");
 
 const DEBUG = true;
 
 const promptInitQuestions = () => {
   return inquirer.prompt(initial_questions);
+};
+
+const promptInstallSteps = readme_data => {
+  if(!readme_data.installSteps){
+    readme_data.installSteps = [];
+  }
+  return inquirer.prompt(installation_questions)
+    .then(install_answer => {
+    readme_data.installSteps.push(install_answer.installStep);
+    if(install_answer.moreInstallSteps) {
+      return promptInstallSteps(readme_data);
+    } else {
+      return readme_data;
+    }
+  });
 };
 
 const promptContributions = readme_data => {
@@ -41,6 +56,7 @@ const promptTests = readme_data => {
 // Function call to initialize app
 function init() {
   promptInitQuestions()
+    .then(promptInstallSteps)
     .then(promptContributions)
     .then(promptTests)
     .then(readme_data => { return generateMarkdown(readme_data); })

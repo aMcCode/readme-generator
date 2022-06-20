@@ -44,8 +44,24 @@ function renderLicenseSection(license) {
   }
 }
 
+function renderListItems(list, isUL) {
+  if(list[0].toLowerCase() === 'none' || !list[0])
+    return "none"
+
+  let textOut = `\n`;
+  counter = 1;
+  list.forEach(itm => {
+    if(isUL) 
+      textOut += `* ${itm}\n`;
+    else
+      textOut += `${counter}. ${itm}\n`;
+    counter++;
+  });
+  return textOut;
+}
+
 function generateMarkdown(data) {
-  const { projectInput, projectDescription, usageInput, license, github, email, contributions, tests } = data;
+  const { projectInput, projectDescription, usageInput, license, github, email, install_steps, contributions, tests } = data;
 return `
 # ${projectInput}
 
@@ -61,13 +77,15 @@ This command-line application uses the [Inquirer](https://www.npmjs.com/package/
 * [Contributing](#Contributing)
 * [Tests](#Tests)
 * [Questions](#Questions)
+***
 
 ## Description
 ${projectDescription}
 ***
 
 ## Installation
-UPDATE PENDING!
+The installation steps are as follows:
+${renderListItems(install_steps, false)}
 ***
 
 ## Usage
@@ -79,19 +97,17 @@ ${renderLicenseSection(license)}
 ***
 
 ## Contributing
-${github}
-${contributions}
-UPDATE PENDING!
+${renderListItems(contributions, false) === "none" ? "" : "You may contribute to this project in the following ways: " + renderListItems(contributions, true)}
 ***
 
 ## Tests
-${tests}
-UPDATE PENDING!
+${renderListItems(tests, true) === "none" ? "No test have been created." : "The following tests were implemented:" + renderListItems(tests, false)}
 ***
 
-## Questions
-${email}
-UPDATE PENDING!
+## Questions/Contact
+
+Follow me on github at : ${github}<br>
+Email me at: ${email}
 
 `;
 }
