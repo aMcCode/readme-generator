@@ -18,7 +18,7 @@ This command-line application uses the [Inquirer](https://www.npmjs.com/package/
 ## Description
 README files are an essential component of any technical deployment. A good README file can help users understand how to implement and use a given tool. Moreover, a README can be the primary selling point for an application as it can help distinguish a tool from similar ones.\n\nAs useful as they are, it can be time consuming to create a high-quality README. That's why this README generator was created! Using the Inquirer NPM package, README Generator prompts users to provide the essential details required for any readme and seemlessly produces a README that can be easily copied to any repository.
 
-![Alt text](images\README_GEN_DEMO.gif?raw=true "Application Demo")
+![Alt text](./images/README_GEN_DEMO.gif?raw=true "Application Demo")
 
 ***
 
