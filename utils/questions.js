@@ -142,24 +142,9 @@ const tests_questions = [
   },
 ];
 
-const mock_data =  {
-    projectInput: "README Generator",
-    projectDescription:
-      `README files are an essential component of any technical deployment. A good README file can help users understand how to implement and use a given tool. Moreover, a README can be the primary selling point for an application as it can help distinguish a tool from similar ones.\n\nAs useful as they are, it can be time consuming to create a high-quality README. That's why this README generator was created! Using the Inquirer NPM package, README Generator prompts users to provide the essential details required for any readme and seemlessly produces a README that can be easily copied to any repository. `,
-    usageInput:
-      "When you run the program from the root directory using the command 'node index', the application will walk you through a few questions. Once you've answered the final question, the app will generate a README file with a formatted rendering of your responses. Note: The README file will be saved in the 'dist' folder.",
-    license: "Unlicense",
-    github: "aMcCode",
-    email: "mcneila1997@gmail.com",
-    install_steps: [ "Clone the repo." ],
-    contributions: [ "none" ],
-    tests: [ "none" ]
-};
-
 module.exports = {
     initial_questions,
     installation_questions,
     contribution_questions,
     tests_questions,
-    mock_data,
 };

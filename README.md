@@ -1,5 +1,5 @@
 
-# README Generator
+# ReadMe Generator
 
 [![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) [![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
 
@@ -16,14 +16,16 @@ This command-line application uses the [Inquirer](https://www.npmjs.com/package/
 ***
 
 ## Description
-README files are an essential component of any technical deployment. A good README file can help users understand how to implement and use a given tool. Moreover, a README can be the primary selling point for an application as it can help distinguish a tool from similar ones.
+README files are an essential component of any technical deployment. A good README file can help users understand how to implement and use a given tool. Moreover, a README can be the primary selling point for an application as it can help distinguish a tool from similar ones.\n\nAs useful as they are, it can be time consuming to create a high-quality README. That's why this README generator was created! Using the Inquirer NPM package, README Generator prompts users to provide the essential details required for any readme and seemlessly produces a README that can be easily copied to any repository.
 
-As useful as they are, it can be time consuming to create a high-quality README. That's why this README generator was created! Using the Inquirer NPM package, README Generator prompts users to provide the essential details required for any readme and seemlessly produces a README that can be easily copied to any repository. 
+![Alt text](images\README_GEN_DEMO.mp4?raw=true "Application Demo")
 ***
 
 ## Installation
 The installation step(s) is/are as follows:
-none
+
+1. Clone the repo.
+
 ***
 
 ## Usage
