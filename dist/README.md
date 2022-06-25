@@ -1,7 +1,7 @@
 
 # README Generator
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) [![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
 
 This command-line application uses the [Inquirer](https://www.npmjs.com/package/inquirer) NPM package to dynamically generate readme files.
 
@@ -22,42 +22,29 @@ As useful as they are, it can be time consuming to create a high-quality README.
 ***
 
 ## Installation
-The installation steps are as follows:
-
-1. step 1
-2. step 2
-3. step 3
-
+The installation step(s) is/are as follows:
+none
 ***
 
 ## Usage
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+When you run the program from the root directory using the command 'node index', the application will walk you through a few questions. Once you've answered the final question, the app will generate a README file with a formatted rendering of your responses. Note: The README file will be saved in the 'dist' folder.
 ***
 
 ## License
-
-  [![License: ](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
-  https://opensource.org/licenses/Apache-2.0
+This application is covered under the Unlicense license. For more information, visit:
+  http://unlicense.org/.
 ***
 
 ## Contributing
-You may contribute to this project in the following ways: 
-* contribution 1
-* contribution 2
-* contribution 3
-
+Not accepting contributions at this time.
 ***
 
 ## Tests
-The following tests were implemented:
-1. Test 1
-2. Test 2
-
+No tests have been created.
 ***
 
 ## Questions/Contact
 
-Follow me on github at : amccode<br>
-Email me at: mcneila1997@gmail.com
+Follow me, aMcCode, on github at https://github.com/aMcCode.<br>
+If you have questions, feel free to email me at: mcneila1997@gmail.com.
 

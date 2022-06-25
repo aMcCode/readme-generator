@@ -35,22 +35,20 @@ function renderLicenseLink(license) {
 
 function renderLicenseSection(license) {
   if(license) {
-  return `
-  ${renderLicenseBadge(license)}
-
-  ${renderLicenseLink(license)}`;
+  return `This application is covered under the ${license} license. For more information, visit:
+  ${renderLicenseLink(license)}.`;
   } else {
     return "";
   }
 }
 
 function renderListItems(list, isUL) {
-  if(list[0].toLowerCase() === 'none' || !list[0])
+  if(!list || !list[0] || list[0].toLowerCase() === 'none')
     return "none"
 
   let textOut = `\n`;
   counter = 1;
-  list.forEach(itm => {
+  list.filter(itm => itm != "none").forEach(itm => {
     if(isUL) 
       textOut += `* ${itm}\n`;
     else
@@ -61,11 +59,11 @@ function renderListItems(list, isUL) {
 }
 
 function generateMarkdown(data) {
-  const { projectInput, projectDescription, usageInput, license, github, email, install_steps, contributions, tests } = data;
+  const { projectInput, projectDescription, usageInput, license, github, email, installSteps, contributions, tests } = data;
 return `
 # ${projectInput}
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
+${license ? renderLicenseBadge(license) + " " + "[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()" : "[![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()"}
 
 This command-line application uses the [Inquirer](https://www.npmjs.com/package/inquirer) NPM package to dynamically generate readme files.
 
@@ -84,8 +82,8 @@ ${projectDescription}
 ***
 
 ## Installation
-The installation steps are as follows:
-${renderListItems(install_steps, false)}
+The installation step(s) is/are as follows:
+${renderListItems(installSteps, false)}
 ***
 
 ## Usage
@@ -97,17 +95,17 @@ ${renderLicenseSection(license)}
 ***
 
 ## Contributing
-${renderListItems(contributions, false) === "none" ? "" : "You may contribute to this project in the following ways: " + renderListItems(contributions, true)}
+${renderListItems(contributions, false) === "none" ? "Not accepting contributions at this time." : "You may contribute to this project in the following way(s): " + renderListItems(contributions, true)}
 ***
 
 ## Tests
-${renderListItems(tests, true) === "none" ? "No test have been created." : "The following tests were implemented:" + renderListItems(tests, false)}
+${renderListItems(tests, true) === "none" ? "No tests have been created." : "The following test(s) was/were implemented:" + renderListItems(tests, false)}
 ***
 
 ## Questions/Contact
 
-Follow me on github at : ${github}<br>
-Email me at: ${email}
+Follow me, ${github}, on github at https://github.com/${github}.<br>
+If you have questions, feel free to email me at: ${email}.
 
 `;
 }

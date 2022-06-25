@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
-const generateMarkdown = require("./Develop/utils/generateMarkdown");
-const { writeFile, copyFile } = require("./Develop/utils/manage_files");
-const { initial_questions, installation_questions, contribution_questions, tests_questions, mock_data} = require("./Develop/utils/questions.js");
+const generateMarkdown = require("./utils/generateMarkdown");
+const { writeFile, copyFile } = require("./utils/manage_files");
+const { initial_questions, installation_questions, contribution_questions, tests_questions, mock_data} = require("./utils/questions.js");
 
 const DEBUG = true;
 
@@ -15,8 +15,8 @@ const promptInstallSteps = readme_data => {
   }
   return inquirer.prompt(installation_questions)
     .then(install_answer => {
-    readme_data.installSteps.push(install_answer.installStep);
-    if(install_answer.moreInstallSteps) {
+    readme_data.installSteps.push(install_answer.installation_method);
+    if(/*install_answer.installation_method && install_answer.installation_method.toLowerCase != "none" && */install_answer.moreInstallSteps) {
       return promptInstallSteps(readme_data);
     } else {
       return readme_data;
@@ -67,7 +67,13 @@ function init() {
     });
 }
 
-// TEST Function call to initialize app
+
+//TODO:  DELETE DEBUG, copy to dist function, testInit and MockData on final deploy. 
+
+/* TEST Function call to initialize app
+    so it will use mockdata which lives in questios.js
+*/
+
 async function testInit() {
   const mockTxt = generateMarkdown(mock_data)
   await writeFile(mockTxt);
