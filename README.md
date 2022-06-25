@@ -1,7 +1,7 @@
 
-# akjflkajf
+# README Generator
 
- [![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
+[![License: Unlicense](https://img.shields.io/badge/License-Unlicense-blue.svg)](http://unlicense.org/) [![GitHub last commit](https://img.shields.io/github/last-commit/aMcCode/readme-generator?style=flat)]()
 
 This command-line application uses the [Inquirer](https://www.npmjs.com/package/inquirer) NPM package to dynamically generate readme files.
 
@@ -16,25 +16,23 @@ This command-line application uses the [Inquirer](https://www.npmjs.com/package/
 ***
 
 ## Description
-fjlafjk
+README files are an essential component of any technical deployment. A good README file can help users understand how to implement and use a given tool. Moreover, a README can be the primary selling point for an application as it can help distinguish a tool from similar ones.
+
+As useful as they are, it can be time consuming to create a high-quality README. That's why this README generator was created! Using the Inquirer NPM package, README Generator prompts users to provide the essential details required for any readme and seemlessly produces a README that can be easily copied to any repository. 
 ***
 
 ## Installation
-The installation steps are as follows:
-
-1. kajfldsj
-2. alkfjalfkj
-3. alkfjalfkj
-
+The installation step(s) is/are as follows:
+none
 ***
 
 ## Usage
-asjflkafj
+When you run the program from the root directory using the command 'node index', the application will walk you through a few questions. Once you've answered the final question, the app will generate a README file with a formatted rendering of your responses. Note: The README file will be saved in the 'dist' folder.
 ***
 
 ## License
-This application is covered under the Apache license. For more information, visit:
-  .
+This application is covered under the Unlicense license. For more information, visit:
+  http://unlicense.org/.
 ***
 
 ## Contributing
@@ -47,6 +45,6 @@ No tests have been created.
 
 ## Questions/Contact
 
-Follow me, alkfjalkdjf, on github at https://github.com/alkfjalkdjf.<br>
-If you have questions, feel free to email me at: g@g.com.
+Follow me, aMcCode, on github at https://github.com/aMcCode.<br>
+If you have questions, feel free to email me at: mcneila1997@gmail.com.
 

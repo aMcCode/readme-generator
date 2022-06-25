@@ -3,7 +3,7 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const { writeFile, copyFile } = require("./utils/manage_files");
 const { initial_questions, installation_questions, contribution_questions, tests_questions, mock_data} = require("./utils/questions.js");
 
-const DEBUG = false;
+const DEBUG = true;
 
 const promptInitQuestions = () => {
   return inquirer.prompt(initial_questions);
@@ -67,7 +67,13 @@ function init() {
     });
 }
 
-// TEST Function call to initialize app
+
+//TODO:  DELETE DEBUG, copy to dist function, testInit and MockData on final deploy. 
+
+/* TEST Function call to initialize app
+    so it will use mockdata which lives in questios.js
+*/
+
 async function testInit() {
   const mockTxt = generateMarkdown(mock_data)
   await writeFile(mockTxt);

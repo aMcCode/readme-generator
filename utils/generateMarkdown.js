@@ -43,13 +43,12 @@ function renderLicenseSection(license) {
 }
 
 function renderListItems(list, isUL) {
-  console.log(list);
   if(!list || !list[0] || list[0].toLowerCase() === 'none')
     return "none"
 
   let textOut = `\n`;
   counter = 1;
-  list.forEach(itm => {
+  list.filter(itm => itm != "none").forEach(itm => {
     if(isUL) 
       textOut += `* ${itm}\n`;
     else
@@ -83,7 +82,7 @@ ${projectDescription}
 ***
 
 ## Installation
-The installation steps are as follows:
+The installation step(s) is/are as follows:
 ${renderListItems(installSteps, false)}
 ***
 
@@ -96,11 +95,11 @@ ${renderLicenseSection(license)}
 ***
 
 ## Contributing
-${renderListItems(contributions, false) === "none" ? "Not accepting contributions at this time." : "You may contribute to this project in the following ways: " + renderListItems(contributions, true)}
+${renderListItems(contributions, false) === "none" ? "Not accepting contributions at this time." : "You may contribute to this project in the following way(s): " + renderListItems(contributions, true)}
 ***
 
 ## Tests
-${renderListItems(tests, true) === "none" ? "No tests have been created." : "The following tests were implemented:" + renderListItems(tests, false)}
+${renderListItems(tests, true) === "none" ? "No tests have been created." : "The following test(s) was/were implemented:" + renderListItems(tests, false)}
 ***
 
 ## Questions/Contact
