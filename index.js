@@ -3,7 +3,7 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const { writeFile, copyFile } = require("./utils/manage_files");
 const { initial_questions, installation_questions, contribution_questions, tests_questions, mock_data} = require("./utils/questions.js");
 
-const DEBUG = true;
+const DEBUG = false;
 
 const promptInitQuestions = () => {
   return inquirer.prompt(initial_questions);
